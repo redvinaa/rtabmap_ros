@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(rtabmap_ros)
 
+add_compile_options(--std=c++11)
+
 # Policy CMP0043 introduced in cmake version 3.0 IGNORES the use of COMPILE_DEFINITIONS suffixed variables, e.g. COMPILE_DEFINITIONS_DEBUG
 # Set to OLD behavior until minimum cmake version >= 2.8.10 (version that COMPILE_DEFINITIONS can be set by generator expressions instead)
 if (POLICY CMP0043)
@@ -46,7 +48,7 @@ IF(WIN32)
 add_compile_options(-bigobj)
 ENDIF(WIN32)
 
-option(RTABMAP_SYNC_MULTI_RGBD "Build with multi RGBD camera synchronization support"  OFF)
+option(RTABMAP_SYNC_MULTI_RGBD "Build with multi RGBD camera synchronization support"  ON)
 option(RTABMAP_SYNC_USER_DATA "Build with input user data support"  OFF)
 MESSAGE(STATUS "RTABMAP_SYNC_MULTI_RGBD = ${RTABMAP_SYNC_MULTI_RGBD}")
 MESSAGE(STATUS "RTABMAP_SYNC_USER_DATA  = ${RTABMAP_SYNC_USER_DATA}")
